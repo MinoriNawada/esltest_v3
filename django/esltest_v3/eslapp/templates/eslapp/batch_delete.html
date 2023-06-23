@@ -1,0 +1,36 @@
+{% extends "eslapp\base.html" %}
+{% load widget_tweaks %}
+{% load humanize %}
+
+
+{% block title %}一括削除{% endblock %}
+
+<!-- ＜＜商品一覧に戻る -->
+{% block back_top %}{% include 'contents/back_top.html' %}{% endblock %}
+
+
+{% block contents %}
+<form action="" method="POST">
+<table class="list_table">
+    <tr>
+        <th width="20px"></th><th>棚札イメージ</th><th>商品CD</th><th>JAN-CD</th><th>商品名</th><th>税抜き価格</th><th>税込み価格</th>
+    </tr>
+    {% for product in products %}
+    <tr>
+        <td><input type="checkbox" name="batch_delete" value="{{ product.pk }}"></td>
+        <td><a href="{% url "detail" product.product_cd %}"><img class="esl_small" src="/images/{{ product.product_cd }}.png"></a></td>
+        <td>{{ product.product_cd }}</td>
+        <td>{{ product.jan_cd }}</td>
+        <td>{{ product.product_name }}</td>
+        <td>{{ product.price_ex| intcomma }}</td>
+        <td>{{ product.price_in| intcomma }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <th></th><th>棚札イメージ</th><th>商品CD</th><th>JAN-CD</th><th>商品名</th><th>税抜価格</th><th>税込価格</th>
+    </tr>
+</table>
+{% csrf_token %}
+<button type="submit">一括削除</button>
+</form>
+{% endblock %}

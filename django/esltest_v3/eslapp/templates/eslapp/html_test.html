@@ -1,0 +1,17 @@
+{% extends "eslapp\base.html" %}
+{% load widget_tweaks %}
+{% load humanize %}
+
+{% block title %}コードのテスト用るん{% endblock %}
+
+<!-- 検索フォーム -->
+{% block contents %}
+<p>表示されたら成功るん</p>
+
+<form action="" method="get">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">並び替え</button>
+</form>
+
+{% endblock %}

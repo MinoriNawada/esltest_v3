@@ -1,0 +1,17 @@
+{% extends "eslapp\base.html" %}
+{% load widget_tweaks %}
+{% load humanize %}
+
+
+{% block title %}追加成功{% endblock %}
+
+
+{% block contents %}
+<h3 class="center"># {{ product_cd }} | {{ product_name }}</h3>
+<p class="center">を追加しました！</p>
+<div class="delete_caution">
+    <a href="{% url "add_product" %}">続けて追加する</a>
+    <a class="cancel" href="{% url "top" %}">商品一覧に戻る</a>
+</div>
+
+{% endblock%}

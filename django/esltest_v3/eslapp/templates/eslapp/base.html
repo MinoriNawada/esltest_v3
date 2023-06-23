@@ -1,0 +1,39 @@
+<!-- CSSのload -->
+{% load static %}
+
+
+<html>
+
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="{% static "css/normalize.css" %}">
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;800&display=swap');</style>
+    
+<title>{% block title %}{% endblock %}</title>
+</head>
+
+
+<body>
+<!-- 共通header -->
+<header class="common">
+    <div>
+        <a href="{% url "top" %}">ESL - ABDI</a>
+        <img class="icon" src="/images/icons/05_settings.svg" xmlns="http://www.w3.org/2000/svg" title="ダミー(押せません)">
+    </div>
+</header>
+
+<!-- 階層header -->
+{% include 'contents/hierarchy.html' %}
+
+<div class="main">
+    <!-- TOPへのリンクBlock -->
+    {% block back_top%}{% endblock %}
+    <!-- Contents Block -->
+    {% block contents %}{% endblock %}
+</div>
+</body>
+
+
+</html>

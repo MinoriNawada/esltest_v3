@@ -1,0 +1,293 @@
+/* batch color settings */
+:root {
+    --MainBgColor: #e4e7cb;
+    --MainTxtColor: #3d4f6b;
+    --TableAccentColor: #d9dbc0;
+    --White: #fafafa;
+    --black: #363636;
+}
+/* body */
+/* 全体 */
+body {
+    background-color: var(--MainBgColor);
+    color: var(--MainTxtColor);
+    margin: 0 0;
+    font-size: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+/* ここから共通のstyle */
+/* リンク色 */
+a {
+    color: var(--MainTxtColor);
+}
+/* hrタグ */
+hr {
+    height: 0;
+    margin: 1.2rem 0;
+    padding: 0;
+    border: 0;
+    border-top: 1px dotted var(--MainTxtColor);
+}
+/* 画像 */
+img.icon {
+    width: 16px;
+    height: 16px;
+}
+img.esl_small {
+    transform: rotate(90deg);
+    height: 90px;
+    margin: -23px 23;
+    padding: 0.3rem 0;
+}
+img.esl_big {
+    transform: rotate(90deg);
+    margin: -64px 64px;
+}
+
+
+/* 状況に応じて適応させたいclassを選ぶ */
+/* 文字の中央寄せ*/
+.center {
+    text-align: center;
+}
+.contents_area_center {
+    width: 70%;
+    padding: 0 15%;
+    /* 子要素の位置指定 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* 子要素が中央寄せになる */
+.contents_area_center_100 {
+    /* 子要素の位置指定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ここから個々の要素に特有のstyle */
+/* header */
+/* header common style */
+header {
+    /* 子要素の位置指定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 共通ヘッダー */
+header.common {
+    width: 100%;
+    height: 40px;
+    background-color: var(--MainTxtColor);
+    margin: 0 0;
+}
+header.common div {
+    width: 70%;
+    padding: 0 15%;
+    /* 子要素の位置指定 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header.common a {
+    width: 120px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--MainBgColor);
+    text-decoration: none;
+}
+/* 検索用ヘッダー */
+header.search {
+    width: 100%;
+    height: 40px; 
+    font-size: 0.8rem;
+    background-color: var(--TableAccentColor);
+    margin: 0 0;
+}
+header.search form {
+    width: 100%;
+    height: 40px;
+    margin-block-end: 0;
+    /* 子要素の位置指定 */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+header .search_form {
+    /* 検索フォームの入力幅 */
+    max-width: 20%;
+    margin: 0 10px;
+}
+header.search .in_button {
+    width:10%;
+    padding: 0 0;
+    /* 子要素の位置指定 */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+/* 階層表示ヘッダー */
+header.hierarchy {
+    background-color: var(--TableAccentColor);
+    padding: 10px 0;
+    font-size: 0.7rem;
+    /* 子要素の位置指定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header.hierarchy div {
+    width: 70%;
+}
+header.hierarchy p {
+    margin: 0 0;
+    font-size: 0.7rem;
+}
+header.hierarchy a {
+    font-weight: 600;
+    text-decoration: none;
+}
+header.hierarchy a:hover {
+    background-color: var(--TableAccentColor);
+
+}
+
+
+/* body*/
+/* コンテンツエリア */
+div.main {
+    height: 100%;
+    width: 70%;
+    margin: 0 15%;
+    padding: 1rem 0;
+
+}
+
+
+
+
+
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 0.8rem;
+    
+}
+
+/* 商品一覧テーブル */
+table th {
+    padding: 5px 0;
+    text-align: center;
+    color: var(--MainBgColor);
+    background-color: var(--MainTxtColor);
+}
+
+table td {
+    text-align: center;
+}
+  
+.list_table tr:nth-child(odd) {
+    background-color: var(--TableAccentColor);
+}
+
+/* 商品Editテーブル */
+.edit_table {
+    margin-left : 0;
+    margin-right : auto;
+    border: None;
+    background-color: var(--MainBgColor);
+    width: 20%;
+    text-align: left;
+    vertical-align: bottom;}
+
+.product_name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+input {
+    border: none;
+    color: var(--MainTxtColor);
+}
+
+/* 001 */
+.button001 {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.button001 a {
+    background: var(--MainTxtColor);
+    color: var(--MainBgColor);
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 10px;
+    max-width: 150px;
+    padding: 5px 20px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+    font-weight: 500;
+}
+.button001 a:hover {
+    background: var(--black);
+    color: var(--White);
+}
+
+
+/* url="delete/" */
+/* name="delete_caution" */
+div.delete_caution {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete_caution form {
+    margin: 0 0;
+}
+.delete_caution a {
+    background: var(--MainTxtColor);
+    color: var(--MainBgColor);
+    border-radius: 8px;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 150px;
+    margin: 0 10px;
+    padding: 5px 20px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+.delete_caution a:hover {
+    background: var(--black);
+    color: var(--White);
+}
+a.cancel {
+    background: var(--White);
+    color: var(--MainTxtColor);
+    border-radius: 8px;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 150px;
+    margin: 0 10px;
+    padding: 5px 20px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+a:hover.cancel {
+    background: var(--black);
+    color: var(--White);
+}

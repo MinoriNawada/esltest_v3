@@ -1,0 +1,15 @@
+{% load widget_tweaks %}
+
+<header class="search">
+    <form name="search">
+        {% render_field search_form.product_name class="search_form" placeholder="商品名で検索" %}
+        {% render_field search_form.product_cd class="search_form" placeholder="商品CDで検索" %}
+        {% render_field search_form.jan_cd class="search_form" placeholder="JAN-CDで検索" %}
+        <div class="in_button">
+        <a href="javascript:document.search.submit()" title="検索">
+            <img class="icon" src="/images/icons/03_search.svg" xmlns="http://www.w3.org/2000/svg"></a>
+        <a href="{% url "top" %}" title="検索をリセット">
+            <img class="icon" src="/images/icons/04_reload.svg" xmlns="http://www.w3.org/2000/svg"></a>
+        </div>
+    </form>
+</header>

@@ -1,0 +1,22 @@
+{% extends "eslapp\base.html" %}
+{% load widget_tweaks %}
+{% load humanize %}
+
+
+{% block title %}[EDIT] #{{ product.product_cd }} - {{ product.product_name }}{% endblock %}
+
+
+<!-- ＜＜商品一覧に戻る -->
+{% block back_top %}{% include 'contents/back_top.html' %}{% endblock %}
+
+
+
+{% block contents %}
+<img class="esl_big"src="/images/{{ product.product_cd }}.png">
+<form method="post">
+{% csrf_token %}
+{{ form.as_p}}
+<input class="buttona" type="submit" value="変更">
+</form>
+<p><a href="{% url "detail" product.product_cd %}"}>キャンセル</a></p>
+{% endblock %}

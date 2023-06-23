@@ -1,0 +1,76 @@
+{% extends "eslapp\base.html" %}
+{% load widget_tweaks %}
+{% load humanize %}
+
+
+{% block title %}ProductList{% endblock %}
+
+<!-- 検索フォーム -->
+
+{% block hierarchy %}{% endblock %}
+
+{% block contents %}
+<!-- リンクエリア -->
+<div class="button001">
+    <a href="{% url "batch_delete" %}">一括削除</a>
+    <a href="{% url "add_product" %}">+ 商品を追加</a>
+</div>
+
+<hr>
+<!-- ソートエリア -->
+<form class="contents_area_center" action="" method="get">
+    {% for choice in sort_form.sort_choice %}
+    {{ choice }}
+    {% endfor %}
+    <button type="submit">並び替え(昇順)</button>
+    <a href="{% url "top" %}" title="ソートをリセット">
+        <img class="icon" src="/images/icons/04_reload.svg" xmlns="http://www.w3.org/2000/svg"></a>
+</form>
+
+{% include 'contents/search_form.html' %}
+
+{% if products.has_previous %}
+<a href="?page={{ products.previous_page_number }}">◀</a>
+{% else %}
+<span>◀</span>
+{% endif %}
+{{ products.number }}   
+
+{% if products.has_next %}
+<a href="?page={{ products.next_page_number }}">▶</a>
+{% else %}
+<span>▶</span>
+{% endif %}
+
+<table class="list_table">
+    <tr>
+        <th>棚札イメージ</th><th>商品CD</th><th>JAN-CD</th><th>商品名</th><th>税抜き価格</th><th>税込み価格</th><th>編集</th><th>削除</th><th>棚札に設定</th><th>棚札管理</th>
+    {% for product in products %}
+    <tr>
+        <td><a href="{% url "detail" product.product_cd %}"><img class="esl_small" src="/images/{{ product.product_cd }}.png"></a></td>
+        <td>{{ product.product_cd }}</td>
+        <td>{{ product.jan_cd }}</td>
+        <td>{{ product.product_name }}</td>
+        <td>{{ product.price_ex| intcomma }}</td>
+        <td>{{ product.price_in| intcomma }}</td>
+        <td width="5%">
+            <a href="{% url "product_edit" product.product_cd %}">
+                <img class="icon" src="/images/icons/02_edit.svg" xmlns="http://www.w3.org/2000/svg">
+            </a>
+        </td>
+        <td width="5%">
+            <a href="{% url "product_delete_caution" product.product_cd %}">
+                <img class="icon" src="/images/icons/01_dustbox.svg" xmlns="http://www.w3.org/2000/svg">
+            </a>
+        <td>
+            <a href="{% url "change_esl" product.product_cd %}">●</a>
+        </td>
+        <td><a href="{% url "set_device" product.product_cd %}"><img class="icon" src="/images/icons/06_arrow.svg" xmlns="http://www.w3.org/2000/svg"></a></td>
+        
+    </tr>
+    {% endfor %}
+    <tr>
+        <th>棚札イメージ</th><th>商品CD</th><th>JAN-CD</th><th>商品名</th><th>税抜価格</th><th>税込価格</th><th>編集</th><th>削除</th><th>棚札に設定</th><th>棚札管理</th>
+    </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "eslapp\base.html" %}
+{% load widget_tweaks %}
+{% load humanize %}
+<!-- cache busting -->
+{% load md5url %}
+
+
+{% block title %}#{{ product.product_cd }} | {{ product.product_name }}{% endblock %}
+
+
+<!-- ＜＜商品一覧に戻る -->
+{% block back_top %}{% include 'contents/back_top.html' %}{% endblock %}
+
+{% block contents %}
+<table class="edit_table">
+    <tr>
+        <td><div class="product_name">{{ product.product_name }}</div></td>
+        <td>
+            <a href="{% url "product_edit" product.product_cd %}">
+            <img class="icon"src="/images/icons/02_edit.svg" xmlns="http://www.w3.org/2000/svg"></a>
+        </td>
+        <form name="delete{{ product.product_cd }}" action="{% url "product_delete" product.product_cd %}" method="post">
+            <td>
+                <a href="{% url "product_delete_caution" product.product_cd %}">
+                    <img class="icon" src="/images/icons/01_dustbox.svg" xmlns="http://www.w3.org/2000/svg">
+                </a>
+            </td>
+        </form>
+    </tr>
+    <tr></tr>
+</table>
+
+<img class="esl_big" src="/images/{{ product.product_cd }}.png">
+<hr>
+<table>
+    <tr>
+        <th>商品CD</th><th>JANCD</th><th>税抜き価格</th><th>税込み価格</th>
+    </tr>
+    <tr>
+        <td>{{ product.product_cd }}</td>
+        <td>{{ product.jan_cd }}</td>
+        <td>{{ product.price_ex| intcomma }}</td>
+        <td>{{ product.price_in| intcomma }}</td>
+    </tr>
+</table>
+{% endblock %}
